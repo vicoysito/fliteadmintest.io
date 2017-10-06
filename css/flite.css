@@ -13,6 +13,25 @@
   margin: 15% 0;
 }
 
-.logo_tit{
+.page-sidebar, .page-header.navbar .page-logo,body{
+  background: white;
+}
+.footer{
+  background: #44b6ae;
+}
 
+.footer ul li a, .footer-copyright{
+  color: white;
+}
+
+.page-sidebar .page-sidebar-menu > li.open > a, .page-sidebar .page-sidebar-menu > li:hover > a, .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu > li.open > a, .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu > li:hover > a{
+  background: #efefef;
+}
+
+.page-sidebar .sidebar-search .input-group, .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .sidebar-search .input-group{
+  border-bottom: 1px solid white;
+}
+
+.nav>li>a:focus, .nav>li>a:hover{
+  background:#1a4946;
 }

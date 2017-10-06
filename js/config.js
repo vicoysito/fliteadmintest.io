@@ -168,7 +168,7 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider) {
         })
 
         // UI Features
-
+        /*
         .state('ui_colors', {
             url: "/ui_colors",
             templateUrl: "views/ui_colors.html",
@@ -1068,15 +1068,7 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider) {
                 specialClass: 'header-none sidebar-none footer-none red-bg  login'
             }
         })
-        .state('login_v2', {
-            url: "/login_v2",
-            templateUrl: "views/login_v2.html",
-            controller:"LoginCtrl",
-            data: {
-                pageTitle: 'Welcome to Flite',
-                specialClass: 'header-none sidebar-none footer-none bg-full  login'
-            }
-        })
+
         .state('register', {
             url: "/register",
             templateUrl: "views/register.html",
@@ -1116,6 +1108,15 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider) {
             data: {
                 pageTitle: 'contacts 2',
                 specialClass: 'page-header-fixed'
+            }
+        })*/
+        .state('login_v2', {
+            url: "/login_v2",
+            templateUrl: "views/login_v2.html",
+            controller:"LoginCtrl",
+            data: {
+                pageTitle: 'Welcome to Flite',
+                specialClass: 'header-none sidebar-none footer-none bg-full  login'
             }
         })
         .state('404', {
