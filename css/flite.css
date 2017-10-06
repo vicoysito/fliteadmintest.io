@@ -1,0 +1,18 @@
+
+.bg-full {
+  /* The image used */
+   background-image: url("http://fliteatm.com/images/slider/slide-3.jpg");
+
+   /* Center and scale the image nicely */
+   background-position: center;
+   background-repeat: repeat;
+   background-size: cover;
+}
+
+.login_logo{
+  margin: 15% 0;
+}
+
+.logo_tit{
+
+}
