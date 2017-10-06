@@ -55,11 +55,13 @@
     <div class="form-group">
       <input required="" placeholder="Password" class="form-control" type="password">
     </div>
-    <button class="btn green block full-width bottom15" ng-click="enter()">Login</button>
+    <p ng-if="loading">... Loading dashboards</p>
+    <button class="btn green block full-width bottom15"  ng-click="enter()">Login</button>
     <a href="#/forgot_password"><small>Forgot password?</small></a>
     <p class="text-muted text-center"><small>Do not have an account?</small></p>
     <a href="register_v2.html" class="btn btn-sm btn-white btn-block">Create an account</a>
 <!--  </form>-->
   <p class=" copyR"> <small>{{template.footer}} &copy; 2016-2017</small> </p>
 </div>
+
 </div>

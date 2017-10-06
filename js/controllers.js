@@ -41,11 +41,12 @@ function LoginCtrl($http,$scope,$state){
   $scope.template.titleform="Flite Banking Center";
   $scope.template.description="Elit eiusmod laborum elit";
   $scope.template.description+= "in ullamco cillum et velit. Proident exercitation eiusmod mollit";
-
   console.info("Lanzo board2");
+  $scope.loading = false;
 
   $scope.enter = function(){
     console.info("Lanzo board");
+    $scope.loading = true;
     $state.go("dashboard1");
   }
 
