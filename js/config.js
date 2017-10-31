@@ -11,7 +11,7 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider) {
     // Configure Idle settings
 
 
-    $urlRouterProvider.otherwise("/login_v2");
+    $urlRouterProvider.otherwise("/login");
 
     $ocLazyLoadProvider.config({
         // Set to true if you want to see what and when is dynamically loaded
@@ -20,11 +20,67 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider) {
 
     $stateProvider
         //Dashboard
+        .state('login', {
+            url: "/login",
+            templateUrl: "views/login.html",
+            controller:"LoginCtrl",
+            data: {
+                pageTitle: 'Welcome to Flite',
+                specialClass: 'header-none sidebar-none footer-none bg-full  login'
+            }
+        })
+        .state('monthlytrends', {
+            url: "/monthlytrends",
+            templateUrl: "views/monthlytrends.html",
+            data: {
+                pageTitle: 'Montly Uptime Trends',
+                specialClass: 'page-header-fixed'
+            },
+            resolve: {
+                loadPlugin: function($ocLazyLoad) {
+                    return $ocLazyLoad.load([{
+                            insertBefore: '#adminAngular',
+                            files: ['css/plugins/amcharts/export.css', 'css/plugins/amcharts/ameffectsanimation.css']
+                        },
+
+                        {
+                            name: 'amChartsDirective',
+                            files: ['js/plugins/amcharts/amcharts.js',
+                            'js/plugins/amcharts/serial.js',
+                            'js/plugins/amcharts/pie.js',
+                            'js/plugins/amcharts/gantt.js',
+                            'js/plugins/amcharts/funnel.js',
+                            'js/plugins/amcharts/radar.js',
+                            'js/plugins/amcharts/amstock.js',
+                            'js/plugins/amcharts/ammap.js',
+                            'js/plugins/amcharts/worldLow.js',
+                            'js/plugins/amcharts/light.js',
+                            'js/plugins/amcharts/export.min.js',
+                            'js/plugins/amcharts/amChartsDirective.js']
+                        },
+                        {
+                                serie: true,
+                                files: ['js/plugins/dataTables/datatables.min.js', 'css/plugins/dataTables/datatables.min.css']
+                            },
+                            {
+                                serie: true,
+                                name: 'datatables',
+                                files: ['js/plugins/dataTables/angular-datatables.min.js']
+                            },
+                            {
+                                serie: true,
+                                name: 'datatables.buttons',
+                                files: ['js/plugins/dataTables/angular-datatables.buttons.min.js']
+                            }
+                    ]);
+                }
+            }
+        })
         .state('dashboard1', {
             url: "/dashboard1",
             templateUrl: "views/dashboard1.html",
             data: {
-                pageTitle: 'dashboard1',
+                pageTitle: 'Montly Uptime Trends',
                 specialClass: 'page-header-fixed'
             },
             resolve: {
@@ -1110,15 +1166,7 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider) {
                 specialClass: 'page-header-fixed'
             }
         })*/
-        .state('login_v2', {
-            url: "/login_v2",
-            templateUrl: "views/login_v2.html",
-            controller:"LoginCtrl",
-            data: {
-                pageTitle: 'Welcome to Flite',
-                specialClass: 'header-none sidebar-none footer-none bg-full  login'
-            }
-        })
+
         .state('404', {
             url: "/404",
             templateUrl: "views/404.html",

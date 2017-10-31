@@ -47,7 +47,7 @@ function LoginCtrl($http,$scope,$state){
   $scope.enter = function(){
     console.info("Lanzo board");
     $scope.loading = true;
-    $state.go("dashboard1");
+    $state.go("monthlytrends");
   }
 
 }
@@ -205,7 +205,251 @@ function dashboardMap() {
  * dashboardOne - simple controller for data
  * for Flot chart in Dashboard view
  */
+
+function monthlytrends($scope,DTOptionsBuilder){
+
+ this.trendData = [{
+     "date": "2012-01-01",
+     "value": 8
+ }, {
+     "date": "2012-01-01",
+     "value": 8
+ }, {
+     "date": "2012-01-02",
+     "color": "#29aba4",
+     "value": 10
+ }, {
+     "date": "2012-01-03",
+     "value": 12
+ }, {
+     "date": "2012-01-04",
+     "value": 14
+ }, {
+     "date": "2012-01-05",
+     "value": 11
+ }, {
+     "date": "2012-01-06",
+     "value": 6
+ }, {
+     "date": "2012-01-07",
+     "value": 7
+ }, {
+     "date": "2012-01-08",
+     "value": 9
+ }, {
+     "date": "2012-01-09",
+     "value": 13
+ }, {
+     "date": "2012-01-10",
+     "value": 15
+ }, {
+     "date": "2012-01-11",
+     "color": "#CC0000",
+     "value": 19
+ }, {
+     "date": "2012-01-12",
+     "value": 21
+ }, {
+     "date": "2012-01-13",
+     "value": 22
+ }, {
+     "date": "2012-01-14",
+     "value": 20
+ }, {
+     "date": "2012-01-15",
+     "value": 18
+ }, {
+     "date": "2012-01-16",
+     "value": 14
+ }, {
+     "date": "2012-01-17",
+     "color": "#29aba4",
+     "value": 16
+ }, {
+     "date": "2012-01-18",
+     "value": 18
+ }, {
+     "date": "2012-01-19",
+     "value": 17
+ }, {
+     "date": "2012-01-20",
+     "value": 15
+ }, {
+     "date": "2012-01-21",
+     "value": 12
+ }, {
+     "date": "2012-01-22",
+     "color": "#CC0000",
+     "value": 10
+ }, {
+     "date": "2012-01-23",
+     "value": 8
+ }];
+
+  // trendLines
+
+  $scope.trendLines = {
+      "type": "serial",
+      "theme": "light",
+      "marginRight": 80,
+      "autoMarginOffset": 20,
+      "dataDateFormat": "YYYY-MM-DD HH:NN",
+      "data": this.trendData,
+      "valueAxes": [{
+          "axisAlpha": 0,
+          "guides": [{
+              "fillAlpha": 0.1,
+              "fillColor": "#2b3643",
+              "lineAlpha": 0,
+              "toValue": 16,
+              "value": 10
+          }],
+          "position": "left",
+          "tickLength": 0
+      }],
+      "graphs": [{
+          "balloonText": "[[category]]<br><b><span style='font-size:14px;'>value:[[value]]</span></b>",
+          "bullet": "round",
+          "dashLength": 3,
+          'lineColor': "#e35b5a",
+          "colorField": "color",
+          "valueField": "value"
+      }],
+      "trendLines": [{
+          "finalDate": "2012-01-11 12",
+          "finalValue": 19,
+          "initialDate": "2012-01-02 12",
+          "initialValue": 10,
+          "lineColor": "#CC0000"
+      }, {
+          "finalDate": "2012-01-22 12",
+          "finalValue": 10,
+          "initialDate": "2012-01-17 12",
+          "initialValue": 16,
+          "lineColor": "#CC0000"
+      }],
+      "chartScrollbar": {
+          "scrollbarHeight": 2,
+          "offset": -1,
+          "backgroundAlpha": 0.1,
+          "backgroundColor": "#888888",
+          "selectedBackgroundColor": "#e35b5a",
+          "selectedBackgroundAlpha": 1
+      },
+      "chartCursor": {
+          "fullWidth": true,
+          "valueLineEabled": true,
+          "valueLineBalloonEnabled": true,
+          "valueLineAlpha": 0.5,
+          "cursorAlpha": 0
+      },
+      "categoryField": "date",
+      "categoryAxis": {
+          "parseDates": true,
+          "axisAlpha": 0,
+          "gridAlpha": 0.1,
+          "minorGridAlpha": 0.1,
+          "minorGridEnabled": true
+      },
+      "export": {
+          "enabled": true
+      }
+  };
+
+
+
+
+  $scope.persons = [{
+      Name: "Alden Kupferberg",
+      Position: "Software Engineer",
+      Office: "New York",
+      Age: "41"
+  }, {
+      Name: "Auckland Straight",
+      Position: "Junior Technical Author",
+      Office: "London",
+      Age: "66"
+  }, {
+      Name: "Aunt Emma",
+      Position: "Support Lead",
+      Office: "New York",
+      Age: "22"
+  }, {
+      Name: "Brad",
+      Position: "Javascript Developer",
+      Office: "London",
+      Age: "39"
+  }, {
+      Name: "Captain Ted Beecham",
+      Position: "Regional Director",
+      Office: "New York",
+      Age: "19"
+  }, {
+      Name: "Chantalle",
+      Position: "Regional Director",
+      Office: "New York",
+      Age: "36 "
+  }, {
+      Name: "Chester Ming",
+      Position: "Systems Administrator",
+      Office: "New York",
+      Age: "22"
+  }, {
+      Name: "Donnie Azoff",
+      Position: "Senior Javascript Developer",
+      Office: "London",
+      Age: "22"
+  }, {
+      Name: "Hildy Azoff",
+      Position: "Sales Assistant",
+      Office: "San Francisco",
+      Age: "23"
+  }, {
+      Name: "Honorary Samantha Stogel",
+      Position: "Developer",
+      Office: "Singapore",
+      Age: "42"
+  }];
+
+
+
+  $scope.dtOptions = DTOptionsBuilder.newOptions()
+      .withDOM('<"html5buttons"B>lTfgitp')
+      .withButtons([{
+              extend: 'copy'
+          },
+          {
+              extend: 'csv'
+          },
+          {
+              extend: 'excel',
+              title: 'ExampleFile'
+          },
+          {
+              extend: 'pdf',
+              title: 'ExampleFile'
+          },
+
+          {
+              extend: 'print',
+              customize: function(win) {
+                  $(win.document.body).addClass('white-bg');
+                  $(win.document.body).css('font-size', '10px');
+
+                  $(win.document.body).find('table')
+                      .addClass('compact')
+                      .css('font-size', 'inherit');
+              }
+          }
+      ]);
+
+
+
+}
+
 function dashboardOne() {
+
+
 
     /**
      * Options for Bar chart
@@ -2242,6 +2486,9 @@ function amChartsCtrl($scope) {
         }
     ];
     $scope.dashBoard = {
+
+
+
 
         type: "serial",
         theme: "dark",
@@ -5758,6 +6005,7 @@ function passwordMeterCtrl($scope) {
 angular
     .module('AdminUI')
     .controller('LoginCtrl', LoginCtrl)
+    .controller('monthlytrends', monthlytrends)
     .controller('MainCtrl', MainCtrl)
     .controller('dashboardMap', dashboardMap)
     .controller('dashboardOne', dashboardOne)
