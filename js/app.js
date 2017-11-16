@@ -3,11 +3,12 @@
  *
  */
 (function () {
-    angular.module('AdminUI', [
+    var app = angular.module('AdminUI', [
         'ui.router',                   // Routing
         'oc.lazyLoad',                // ocLazyLoad
-        'ui.bootstrap'               // Ui Bootstrap      
-      
+        'ui.bootstrap',               // Ui Bootstrap
+        'ngCookies',
+        'ngResource'
     ])
 })();
 

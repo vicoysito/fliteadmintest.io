@@ -1,37 +1,74 @@
 
-.bg-full {
-  /* The image used */
-   background-image: url("http://fliteatm.com/images/slider/slide-3.jpg");
-
-   /* Center and scale the image nicely */
-   background-position: center;
-   background-repeat: repeat;
-   background-size: cover;
+.bg-full
+{
+    /* The image used */
+    background-image: url('/images/background_flite.jpg');
+    background-repeat: repeat;
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-size: cover;
 }
 
-.login_logo{
-  margin: 15% 0;
+.login_logo
+{
+    margin: 15% 0;
 }
 
-.page-sidebar, .page-header.navbar .page-logo,body{
-  background: white;
+.page-sidebar,
+.page-header.navbar .page-logo,
+body
+{
+    background: white;
 }
-.footer{
-  background: #44b6ae;
-}
-
-.footer ul li a, .footer-copyright{
-  color: white;
-}
-
-.page-sidebar .page-sidebar-menu > li.open > a, .page-sidebar .page-sidebar-menu > li:hover > a, .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu > li.open > a, .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu > li:hover > a{
-  background: #efefef;
+.footer
+{
+    background: #44b6ae;
 }
 
-.page-sidebar .sidebar-search .input-group, .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .sidebar-search .input-group{
-  border-bottom: 1px solid white;
+.footer ul li a,
+.footer-copyright
+{
+    color: white;
 }
 
-.nav>li>a:focus, .nav>li>a:hover{
-  background:#1a4946;
+.page-sidebar .page-sidebar-menu > li.open > a,
+.page-sidebar .page-sidebar-menu > li:hover > a,
+.page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu > li.open > a,
+.page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu > li:hover > a
+{
+    background: #efefef;
+}
+
+.page-sidebar .sidebar-search .input-group,
+.page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .sidebar-search .input-group
+{
+    border-bottom: 1px solid white;
+}
+
+.nav > li > a:focus,
+.nav > li > a:hover
+{
+    background: #1a4946;
+}
+
+
+/* ==========================================================================
+   ANGULAR STYLES
+   ========================================================================== */
+
+.fade.ng-hide
+{
+    transition: .5s linear all;
+
+    opacity: 0;
+}
+
+.bg-plain{ /* The image used */
+    background-color: #e8ffe2;
+    
+}
+
+
+.card-flite{
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }

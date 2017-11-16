@@ -33,24 +33,7 @@
  * Contains several global data used in different view
  *
  */
-function LoginCtrl($http,$scope,$state){
-  //var templates
-  $scope.template = {};
-  $scope.template.tit_main = "ATM Placement Program";
-  $scope.template.logoname="Flite";
-  $scope.template.titleform="Flite Banking Center";
-  $scope.template.description="Elit eiusmod laborum elit";
-  $scope.template.description+= "in ullamco cillum et velit. Proident exercitation eiusmod mollit";
-  console.info("Lanzo board2");
-  $scope.loading = false;
 
-  $scope.enter = function(){
-    console.info("Lanzo board");
-    $scope.loading = true;
-    $state.go("monthlytrends");
-  }
-
-}
 
  function MainCtrl($http, $scope, $location) {
 
@@ -206,7 +189,19 @@ function dashboardMap() {
  * for Flot chart in Dashboard view
  */
 
+function navegationtabCtrl($scope){
+
+
+  $scope.logout = function(){
+    console.info('OK IM OUT');
+  }
+
+}
+
 function monthlytrends($scope,DTOptionsBuilder){
+
+$scope.logout = function(){
+}
 
  this.trendData = [{
      "date": "2012-01-01",
@@ -6004,7 +5999,8 @@ function passwordMeterCtrl($scope) {
  */
 angular
     .module('AdminUI')
-    .controller('LoginCtrl', LoginCtrl)
+    .controller('navegationtabCtrl',navegationtabCtrl)
+    //.controller('LoginCtrl', LoginCtrl)
     .controller('monthlytrends', monthlytrends)
     .controller('MainCtrl', MainCtrl)
     .controller('dashboardMap', dashboardMap)

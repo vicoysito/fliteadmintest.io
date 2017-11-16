@@ -11,7 +11,7 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider) {
     // Configure Idle settings
 
 
-    $urlRouterProvider.otherwise("/login");
+$urlRouterProvider.otherwise("/login");
 
     $ocLazyLoadProvider.config({
         // Set to true if you want to see what and when is dynamically loaded
@@ -28,13 +28,36 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider) {
                 pageTitle: 'Welcome to Flite',
                 specialClass: 'header-none sidebar-none footer-none bg-full  login'
             }
-        })
+        }).state('forgot_password', {
+            url: "/forgot_password",
+            templateUrl: "views/forgot_password.html",
+            data: {
+                pageTitle: 'forgot_password',
+                specialClass: 'header-none sidebar-none footer-none bg-plain login'
+            }
+        }).state('users_client', {
+            url: "/users_client",
+            templateUrl: "views/users_client.html",
+            data: {
+                pageTitle: 'Users Managment',
+                specialClass: 'page-header-fixed'
+                /*permissions: {
+                  only: 'isAuth',
+                  redirectTo: 'login'
+                }*/
+            }
+        }
+         )
         .state('monthlytrends', {
             url: "/monthlytrends",
             templateUrl: "views/monthlytrends.html",
             data: {
                 pageTitle: 'Montly Uptime Trends',
                 specialClass: 'page-header-fixed'
+                /*permissions: {
+                  only: 'isAuth',
+                  redirectTo: 'login'
+                }*/
             },
             resolve: {
                 loadPlugin: function($ocLazyLoad) {
@@ -1183,7 +1206,6 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider) {
                 specialClass: 'header-none sidebar-none footer-none gray-bg'
             }
         });
-
 }
 angular
     .module('AdminUI')
